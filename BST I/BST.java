@@ -1,5 +1,6 @@
 import java.io.FilterOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BST {
     static class Node{
@@ -151,6 +152,18 @@ public class BST {
         System.out.print(root.data+" ");
         preOrder(root.left);
         preOrder(root.right);
+    }
+    public static int[] twoSum(int[] nums,int target){
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complimene=target-nums[i];
+
+            if (hm.containsKey(complimene)){
+                return new int[] {hm.get(complimene),i};
+            }
+            hm.put(nums[i],i);
+        }
+        return new int[] {};
     }
 
     public static void main(String args[]){
